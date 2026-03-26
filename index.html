@@ -3,1150 +3,536 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>South Port Melbourne Primary School — Parent Portal</title>
+<title>Sorted — Test Content Hub</title>
 <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
-<link rel="icon" type="image/png" sizes="180x180" href="icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:       #1A3A5C;
-    --navy-deep:  #0F2340;
-    --teal:       #2A8A8A;
-    --teal-light: #3AABAB;
-    --amber:      #E8A020;
-    --amber-pale: #FEF6E4;
-    --cream:      #F7F4EF;
-    --grey-soft:  #EEF0F2;
-    --grey-mid:   #8A9BAD;
-    --text:       #1C2B3A;
-    --text-soft:  #4A5E70;
-    --white:      #FFFFFF;
-    --border:     rgba(26,58,92,0.12);
-    --shadow-sm:  0 2px 8px rgba(26,58,92,0.08);
-    --shadow-md:  0 6px 24px rgba(26,58,92,0.12);
-    --shadow-lg:  0 16px 48px rgba(26,58,92,0.16);
+    --aperol:        #F4623A;
+    --aperol-dark:   #D94F29;
+    --aperol-tint:   #FDE8D8;
+    --prosecco:      #F7C948;
+    --prosecco-tint: #FEF7DC;
+    --espresso:      #1C1410;
+    --bark:          #6B5C52;
+    --linen:         #FDF6F0;
+    --white:         #FFFFFF;
+    --border:        rgba(107,92,82,0.12);
+    --shadow-sm:     0 2px 8px rgba(28,20,16,0.06);
+    --shadow-md:     0 6px 24px rgba(28,20,16,0.1);
+    --shadow-lg:     0 16px 48px rgba(28,20,16,0.14);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    color: var(--text);
-    background: var(--cream);
-    line-height: 1.6;
+    background: var(--linen);
+    color: var(--espresso);
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
   }
-
-  /* ── TOP BAR ── */
-  .topbar {
-    background: var(--navy-deep);
-    padding: 0 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 40px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.02em;
-  }
-  .topbar a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color .2s; }
-  .topbar a:hover { color: var(--amber); }
-  .topbar-links { display: flex; gap: 24px; }
 
   /* ── HEADER ── */
   header {
-    background: var(--navy);
-    padding: 0 32px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    box-shadow: var(--shadow-sm);
   }
 
   .logo {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
     text-decoration: none;
   }
-
-  .logo-mark {
-    width: 48px;
-    height: 48px;
-    background: var(--amber);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--aperol);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .logo-word {
     font-family: 'Fraunces', serif;
     font-weight: 700;
     font-size: 22px;
-    color: var(--navy-deep);
+    color: var(--espresso);
     letter-spacing: -0.5px;
   }
 
-  .logo-text { display: flex; flex-direction: column; gap: 1px; }
-  .logo-name {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 18px;
-    color: var(--white);
-    line-height: 1.2;
-    letter-spacing: -0.2px;
-  }
-  .logo-sub {
+  .header-badge {
+    background: var(--prosecco-tint);
+    color: var(--bark);
     font-size: 11px;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(247,201,72,0.3);
+    letter-spacing: 0.04em;
   }
-
-  nav { display: flex; align-items: center; gap: 4px; }
-  nav a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: all .2s;
-    letter-spacing: 0.01em;
-  }
-  nav a:hover { color: var(--white); background: rgba(255,255,255,0.1); }
-  nav a.active { color: var(--white); background: rgba(255,255,255,0.12); }
-
-  .nav-login {
-    background: var(--amber) !important;
-    color: var(--navy-deep) !important;
-    font-weight: 600 !important;
-    margin-left: 8px;
-    padding: 8px 18px !important;
-  }
-  .nav-login:hover { background: #f0ad28 !important; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,160,32,0.4); }
 
   /* ── HERO ── */
   .hero {
-    background: var(--navy);
-    padding: 64px 32px 72px;
-    position: relative;
-    overflow: hidden;
+    padding: 40px 20px 32px;
+    text-align: center;
   }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(42,138,138,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(232,160,32,0.08) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  /* Decorative dots grid */
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 320px; height: 100%;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
-    background-size: 24px 24px;
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-
   .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(232,160,32,0.15);
-    border: 1px solid rgba(232,160,32,0.3);
-    color: var(--amber);
+    display: inline-block;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 20px;
-    margin-bottom: 20px;
+    color: var(--aperol);
+    margin-bottom: 12px;
   }
-
-  .hero-eyebrow::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--amber);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
   .hero h1 {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: clamp(32px, 4vw, 48px);
-    color: var(--white);
+    font-size: clamp(28px, 7vw, 36px);
+    color: var(--espresso);
     line-height: 1.15;
     letter-spacing: -0.5px;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
   }
-
   .hero h1 em {
     font-style: italic;
-    color: var(--teal-light);
+    color: var(--aperol);
   }
-
-  .hero-desc {
-    color: rgba(255,255,255,0.65);
+  .hero-sub {
     font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 32px;
-    max-width: 440px;
-  }
-
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 22px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all .2s;
-    cursor: pointer;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-  }
-
-  .btn-primary {
-    background: var(--amber);
-    color: var(--navy-deep);
-  }
-  .btn-primary:hover { background: #f0ad28; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,160,32,0.35); }
-
-  .btn-ghost {
-    background: rgba(255,255,255,0.1);
-    color: var(--white);
-    border: 1px solid rgba(255,255,255,0.2);
-  }
-  .btn-ghost:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
-
-  /* Hero right: term info card */
-  .hero-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    padding: 28px;
-    backdrop-filter: blur(10px);
-  }
-
-  .hero-card-title {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal-light);
-    margin-bottom: 20px;
-  }
-
-  .term-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    gap: 16px;
-  }
-  .term-item:last-child { border-bottom: none; }
-
-  .term-label {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
+    color: var(--bark);
+    line-height: 1.6;
+    max-width: 360px;
+    margin: 0 auto;
     font-weight: 400;
   }
-  .term-value {
-    font-size: 13px;
-    color: var(--white);
-    font-weight: 600;
-    text-align: right;
-  }
-  .term-badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-  .badge-amber { background: rgba(232,160,32,0.2); color: var(--amber); border: 1px solid rgba(232,160,32,0.3); }
-  .badge-teal { background: rgba(42,138,138,0.2); color: var(--teal-light); border: 1px solid rgba(42,138,138,0.3); }
-  .badge-green { background: rgba(52,199,89,0.15); color: #4cd964; border: 1px solid rgba(52,199,89,0.3); }
 
-  /* ── MAIN LAYOUT ── */
-  .main-wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 48px 32px;
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 40px;
-    align-items: start;
+  /* ── HOW TO USE ── */
+  .how-to {
+    margin: 0 20px 32px;
+    background: var(--aperol-tint);
+    border-radius: 16px;
+    padding: 18px 20px;
+    border: 1px solid rgba(244,98,58,0.15);
   }
-
-  /* ── SECTION HEADERS ── */
-  .section-header {
+  .how-to-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--aperol);
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
+    gap: 6px;
+  }
+  .how-to-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--espresso);
+    line-height: 1.5;
+  }
+  .step-num {
+    width: 20px; height: 20px;
+    background: var(--aperol);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── SECTION ── */
+  .section { padding: 0 20px; margin-bottom: 36px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
   }
   .section-title {
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    font-size: 20px;
-    color: var(--navy);
+    font-size: 18px;
+    color: var(--espresso);
     letter-spacing: -0.2px;
   }
-  .section-title span {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
+  .section-count {
     font-size: 12px;
+    color: var(--bark);
     font-weight: 500;
-    color: var(--grey-mid);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 2px;
   }
-  .view-all {
-    font-size: 13px;
-    color: var(--teal);
+
+  /* ── CARDS ── */
+  .cards { display: flex; flex-direction: column; gap: 10px; }
+
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
     text-decoration: none;
-    font-weight: 500;
+    color: var(--espresso);
     display: flex;
     align-items: center;
-    gap: 4px;
-    transition: gap .2s;
+    gap: 14px;
+    padding: 16px;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
   }
-  .view-all:hover { gap: 8px; }
 
-  /* ── NEWSLETTER FEATURED CARD ── */
-  .newsletter-card {
-    background: var(--white);
-    border-radius: 20px;
+  .card:hover, .card:active {
     box-shadow: var(--shadow-md);
-    overflow: hidden;
-    margin-bottom: 32px;
-    border: 1px solid var(--border);
-    transition: box-shadow .3s, transform .3s;
-    animation: fadeUp .5s ease both;
-  }
-  .newsletter-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
+    transform: translateY(-1px);
+    border-color: rgba(244,98,58,0.2);
   }
 
-  .newsletter-card-header {
-    background: linear-gradient(135deg, var(--navy) 0%, #1e4a73 100%);
-    padding: 28px 32px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .newsletter-card-header::after {
-    content: '';
-    position: absolute;
-    right: -20px; top: -20px;
-    width: 140px; height: 140px;
-    background: rgba(42,138,138,0.15);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .newsletter-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 8px;
-  }
-  .newsletter-name {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.2;
-    letter-spacing: -0.3px;
-  }
-  .newsletter-meta {
-    font-size: 13px;
-    color: rgba(255,255,255,0.55);
-    margin-top: 6px;
-  }
-
-  .newsletter-pdf-icon {
+  .card-icon {
     width: 52px; height: 52px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1;
-  }
-  .newsletter-pdf-icon svg { width: 26px; height: 26px; }
-
-  .newsletter-card-body {
-    padding: 24px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .newsletter-highlights {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-
-  .highlight-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--text-soft);
-  }
-  .highlight-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
     flex-shrink: 0;
   }
 
-  .newsletter-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .icon-orange  { background: var(--aperol-tint); }
+  .icon-yellow  { background: var(--prosecco-tint); }
+  .icon-blue    { background: rgba(26,58,92,0.08); }
+  .icon-green   { background: rgba(37,213,102,0.1); }
+  .icon-pink    { background: rgba(255,126,179,0.1); }
+  .icon-purple  { background: rgba(155,106,255,0.1); }
+  .icon-dark    { background: rgba(28,20,16,0.06); }
 
-  .btn-download {
-    background: var(--navy);
-    color: var(--white);
-  }
-  .btn-download:hover { background: var(--navy-deep); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .card-info { flex: 1; min-width: 0; }
 
-  .btn-outline {
-    background: transparent;
-    color: var(--navy);
-    border: 1.5px solid var(--border);
-  }
-  .btn-outline:hover { border-color: var(--navy); background: var(--grey-soft); }
-
-  /* ── PAST NEWSLETTERS ── */
-  .past-newsletters {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 40px;
-    animation: fadeUp .5s .1s ease both;
-  }
-
-  .past-item {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    text-decoration: none;
-    transition: all .2s;
-    color: var(--text);
-  }
-  .past-item:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); transform: translateX(3px); }
-
-  .past-item-icon {
-    width: 36px; height: 36px;
-    background: var(--grey-soft);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .past-item-info { flex: 1; min-width: 0; }
-  .past-item-name { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .past-item-date { font-size: 12px; color: var(--grey-mid); margin-top: 1px; }
-  .past-item-arrow { color: var(--grey-mid); transition: color .2s, transform .2s; }
-  .past-item:hover .past-item-arrow { color: var(--teal); transform: translateX(3px); }
-
-  /* ── ANNOUNCEMENTS ── */
-  .announcements {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 40px;
-    animation: fadeUp .5s .15s ease both;
-  }
-
-  .announcement {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px 20px;
-    display: flex;
-    gap: 14px;
-    transition: box-shadow .2s;
-  }
-  .announcement:hover { box-shadow: var(--shadow-sm); }
-
-  .announce-stripe {
-    width: 4px;
-    border-radius: 4px;
-    flex-shrink: 0;
-    align-self: stretch;
-  }
-  .stripe-amber { background: var(--amber); }
-  .stripe-teal  { background: var(--teal); }
-  .stripe-navy  { background: var(--navy); }
-  .stripe-red   { background: #e05252; }
-
-  .announce-content { flex: 1; }
-  .announce-tag {
+  .card-type {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
-  .tag-amber { color: var(--amber); }
-  .tag-teal  { color: var(--teal); }
-  .tag-navy  { color: var(--navy); }
-  .tag-red   { color: #e05252; }
+  .type-newsletter { color: #1A3A5C; }
+  .type-invite     { color: #F4623A; }
+  .type-sports     { color: #2A8A8A; }
+  .type-chat       { color: #25D366; }
+  .type-school     { color: #6B5C52; }
+  .type-portal     { color: #9B6AFF; }
+  .type-note       { color: #E8A020; }
 
-  .announce-title { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; }
-  .announce-desc  { font-size: 13px; color: var(--text-soft); margin-top: 4px; line-height: 1.5; }
-  .announce-date  { font-size: 11px; color: var(--grey-mid); margin-top: 8px; }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--espresso);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: var(--bark);
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+  }
 
-  /* ── SIDEBAR ── */
-  .sidebar { display: flex; flex-direction: column; gap: 24px; }
+  .card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    flex-shrink: 0;
+  }
 
-  .sidebar-card {
+  .card-arrow {
+    color: rgba(107,92,82,0.4);
+    font-size: 18px;
+    transition: transform .2s, color .2s;
+  }
+  .card:hover .card-arrow { color: var(--aperol); transform: translateX(2px); }
+
+  .card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .tag-new     { background: rgba(244,98,58,0.12); color: var(--aperol); border: 1px solid rgba(244,98,58,0.2); }
+  .tag-pdf     { background: rgba(26,58,92,0.08); color: #1A3A5C; border: 1px solid rgba(26,58,92,0.15); }
+  .tag-html    { background: var(--prosecco-tint); color: #8A6E00; border: 1px solid rgba(247,201,72,0.3); }
+  .tag-link    { background: rgba(155,106,255,0.1); color: #6B3FE0; border: 1px solid rgba(155,106,255,0.2); }
+
+  /* ── FEATURED CARD ── */
+  .card-featured {
+    background: linear-gradient(135deg, var(--aperol) 0%, #F4823A 100%);
+    border-color: transparent;
+    color: var(--white);
+  }
+  .card-featured:hover { border-color: transparent; }
+  .card-featured .card-title { color: var(--white); }
+  .card-featured .card-desc  { color: rgba(255,255,255,0.7); }
+  .card-featured .card-type  { color: rgba(255,255,255,0.8); }
+  .card-featured .card-arrow { color: rgba(255,255,255,0.5); }
+  .card-featured:hover .card-arrow { color: var(--white); }
+  .card-featured .card-icon  { background: rgba(255,255,255,0.2); }
+
+  /* ── TIPS ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+  .tip {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    animation: fadeUp .5s .2s ease both;
+    border-radius: 14px;
+    padding: 16px;
   }
-
-  .sidebar-card-header {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--navy);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .sidebar-card-header svg { width: 14px; height: 14px; opacity: 0.6; }
-
-  /* Key dates */
-  .key-dates { padding: 8px 0; }
-  .date-item {
-    padding: 10px 20px;
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    border-bottom: 1px solid var(--grey-soft);
-    transition: background .15s;
-  }
-  .date-item:last-child { border-bottom: none; }
-  .date-item:hover { background: var(--grey-soft); }
-
-  .date-block {
-    width: 42px;
-    flex-shrink: 0;
-    text-align: center;
-    background: var(--navy);
-    border-radius: 8px;
-    padding: 5px 4px;
-  }
-  .date-block.amber { background: var(--amber); }
-  .date-block.teal  { background: var(--teal); }
-  .date-block.red   { background: #e05252; }
-
-  .date-day {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-    font-family: 'Fraunces', serif;
-  }
-  .date-month {
-    font-size: 9px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-  .date-info { flex: 1; }
-  .date-title { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.3; }
-  .date-sub   { font-size: 12px; color: var(--grey-mid); margin-top: 2px; }
-
-  /* Quick links */
-  .quick-links { padding: 12px; display: flex; flex-direction: column; gap: 6px; }
-  .quick-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 500;
-    transition: all .2s;
-  }
-  .quick-link:hover { background: var(--grey-soft); color: var(--navy); }
-  .quick-link-icon {
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  .quick-link svg { width: 16px; height: 16px; }
-  .ql-navy  { background: rgba(26,58,92,0.08); color: var(--navy); }
-  .ql-teal  { background: rgba(42,138,138,0.1); color: var(--teal); }
-  .ql-amber { background: rgba(232,160,32,0.12); color: #c4830a; }
-  .ql-green { background: rgba(52,199,89,0.1); color: #2e9e50; }
+  .tip-icon { font-size: 24px; margin-bottom: 8px; }
+  .tip-title { font-size: 13px; font-weight: 700; color: var(--espresso); margin-bottom: 4px; }
+  .tip-text  { font-size: 12px; color: var(--bark); line-height: 1.5; }
 
   /* ── FOOTER ── */
   footer {
-    background: var(--navy-deep);
-    color: rgba(255,255,255,0.5);
-    padding: 40px 32px;
-    margin-top: 40px;
+    text-align: center;
+    padding: 32px 20px 48px;
+    border-top: 1px solid var(--border);
+    background: var(--white);
   }
-  .footer-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-brand-name {
+  .footer-logo {
     font-family: 'Fraunces', serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .footer-brand-info { font-size: 13px; line-height: 1.8; }
-  .footer-col-title {
-    font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 14px;
+    font-size: 20px;
+    color: var(--espresso);
+    margin-bottom: 6px;
   }
-  .footer-links { display: flex; flex-direction: column; gap: 8px; }
-  .footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color .2s; }
-  .footer-links a:hover { color: var(--amber); }
-  .footer-bottom {
-    max-width: 1100px;
-    margin: 24px auto 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .footer-text {
     font-size: 12px;
-    flex-wrap: wrap;
-    gap: 12px;
+    color: var(--bark);
+    line-height: 1.7;
   }
-  .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
-  .footer-bottom a:hover { color: var(--amber); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
-    .hero-card { display: none; }
-    .main-wrap { grid-template-columns: 1fr; }
-    .sidebar { grid-row: 1; }
-    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-    nav { display: none; }
-    .topbar { display: none; }
+  .footer-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--aperol);
+    margin-top: 10px;
   }
 
-  /* ── WELCOME BANNER ── */
-  .welcome-bar {
-    background: linear-gradient(90deg, var(--teal) 0%, #1e9898 100%);
-    padding: 12px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+  /* Animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
-  .welcome-text {
-    font-size: 13px;
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 500;
-  }
-  .welcome-text strong { font-weight: 700; }
-  .welcome-dismiss {
-    background: rgba(255,255,255,0.2);
-    border: none;
-    color: var(--white);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    transition: background .2s;
-    flex-shrink: 0;
-  }
-  .welcome-dismiss:hover { background: rgba(255,255,255,0.3); }
+  .section { animation: fadeUp 0.4s ease both; }
+  .section:nth-child(2) { animation-delay: .05s; }
+  .section:nth-child(3) { animation-delay: .10s; }
+  .section:nth-child(4) { animation-delay: .15s; }
 </style>
 </head>
 <body>
 
-<!-- Top utility bar -->
-<div class="topbar">
-  <span>South Port Melbourne Primary School — Parent Portal</span>
-  <div class="topbar-links">
-    <a href="#">Contact Office</a>
-    <a href="#">Compass</a>
-    <a href="#">DET Victoria</a>
-  </div>
-</div>
-
-<!-- Main header -->
 <header>
   <a href="#" class="logo">
-    <div class="logo-mark">SP</div>
-    <div class="logo-text">
-      <span class="logo-name">South Port Melbourne PS</span>
-      <span class="logo-sub">Parent Portal</span>
-    </div>
+    <div class="logo-icon">📅</div>
+    <span class="logo-word">Sorted</span>
   </a>
-  <nav>
-    <a href="#" class="active">Home</a>
-    <a href="#">Newsletters</a>
-    <a href="#">Calendar</a>
-    <a href="#">Notices</a>
-    <a href="#">Forms</a>
-    <a href="#" class="btn nav-login">Sign In</a>
-  </nav>
+  <div class="header-badge">App Test Hub</div>
 </header>
 
-<!-- Welcome banner -->
-<div class="welcome-bar" id="welcomeBar">
-  <div class="welcome-text">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
-    <span>Term 1 ends <strong>Friday 3 April</strong> — dismissal at 3:30 pm. Term 2 begins <strong>Tuesday 22 April 2026</strong>.</span>
-  </div>
-  <button class="welcome-dismiss" onclick="document.getElementById('welcomeBar').style.display='none'">Dismiss</button>
+<div class="hero">
+  <div class="hero-eyebrow">Demo Content Library</div>
+  <h1>Test <em>everything.</em><br>All in one place.</h1>
+  <p class="hero-sub">A collection of real-looking documents, chats, and pages — designed to test every feature of Sorted on your phone.</p>
 </div>
 
-<!-- Hero section -->
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow">Term 1 · Week 9 · Final Week</div>
-      <h1>Welcome back,<br><em>South Port</em> families.</h1>
-      <p class="hero-desc">Stay up to date with school news, newsletters, key dates, and important notices — all in one place for our community.</p>
-      <div class="hero-actions">
-        <a href="PortMelbournePSNewsletter_T1_2026.pdf" target="_blank" class="btn btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><polyline points="9 14 12 17 15 14"/></svg>
-          Latest Newsletter
-        </a>
-        <a href="#" class="btn btn-ghost">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          View Calendar
-        </a>
-      </div>
+<div class="how-to">
+  <div class="how-to-title">
+    <span>📋</span> How to use this hub
+  </div>
+  <div class="how-to-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <span>Open any document below — newsletter, invite, chat, flyer, or notice</span>
     </div>
-
-    <div class="hero-card">
-      <div class="hero-card-title">Term at a glance</div>
-      <div class="term-item">
-        <span class="term-label">Current term</span>
-        <span class="term-value">Term 1, 2026</span>
-      </div>
-      <div class="term-item">
-        <span class="term-label">Last day</span>
-        <span class="term-value">Fri 3 April <span class="term-badge badge-amber">This week</span></span>
-      </div>
-      <div class="term-item">
-        <span class="term-label">Term 2 starts</span>
-        <span class="term-value">Tue 22 April</span>
-      </div>
-      <div class="term-item">
-        <span class="term-label">NAPLAN (Yr 3 & 5)</span>
-        <span class="term-value">13–23 May</span>
-      </div>
-      <div class="term-item">
-        <span class="term-label">Newsletter</span>
-        <span class="term-value"><span class="term-badge badge-teal">Edition 9 — New</span></span>
-      </div>
-      <div class="term-item">
-        <span class="term-label">Canteen (this week)</span>
-        <span class="term-value"><span class="term-badge badge-green">Mon &amp; Wed only</span></span>
-      </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <span>Use the Share Sheet to send it to <strong>Sorted</strong></span>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <span>Watch Sorted extract the events and tap to add them to your calendar</span>
     </div>
   </div>
-</section>
-
-<!-- Main content -->
-<div class="main-wrap">
-
-  <!-- Left: main content -->
-  <main>
-
-    <!-- Featured newsletter -->
-    <div class="section-header">
-      <div class="section-title">
-        <span>Latest</span>
-        School Newsletter
-      </div>
-      <a href="#past" class="view-all">All newsletters →</a>
-    </div>
-
-    <div class="newsletter-card">
-      <div class="newsletter-card-header">
-        <div>
-          <div class="newsletter-label">Term 1 · Edition 9 · Final Edition</div>
-          <div class="newsletter-name">South Port Melbourne Primary School<br>Term 1 Newsletter</div>
-          <div class="newsletter-meta">Published Friday 28 March 2026 &nbsp;·&nbsp; 4 pages</div>
-        </div>
-        <div class="newsletter-pdf-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.8">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <path d="M9 13h1.5a1 1 0 0 1 0 2H9v-4h1.5a1 1 0 0 1 0 2"/>
-            <path d="M14 13v4"/>
-            <path d="M17 13h-1.5a1 1 0 0 0 0 2H17"/>
-          </svg>
-        </div>
-      </div>
-      <div class="newsletter-card-body">
-        <div class="newsletter-highlights">
-          <div class="highlight-item"><div class="highlight-dot"></div>Swimming Carnival results</div>
-          <div class="highlight-item"><div class="highlight-dot"></div>Harmony Day wrap-up</div>
-          <div class="highlight-item"><div class="highlight-dot"></div>Year 6 Camp details</div>
-          <div class="highlight-item"><div class="highlight-dot"></div>NAPLAN &amp; Key Dates</div>
-          <div class="highlight-item"><div class="highlight-dot"></div>Student awards</div>
-        </div>
-        <div class="newsletter-actions">
-          <a href="PortMelbournePSNewsletter_T1_2026.pdf" target="_blank" class="btn btn-download">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
-          <a href="PortMelbournePSNewsletter_T1_2026.pdf" target="_blank" class="btn btn-outline">Open</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Past newsletters -->
-    <div id="past" class="section-header" style="margin-top: 36px;">
-      <div class="section-title">
-        <span>Archive</span>
-        Previous Newsletters
-      </div>
-    </div>
-
-    <div class="past-newsletters">
-      <a href="#" class="past-item">
-        <div class="past-item-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A9BAD" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <div class="past-item-info">
-          <div class="past-item-name">Term 1 Newsletter — Edition 8</div>
-          <div class="past-item-date">Friday 14 March 2026</div>
-        </div>
-        <svg class="past-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-      <a href="#" class="past-item">
-        <div class="past-item-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A9BAD" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <div class="past-item-info">
-          <div class="past-item-name">Term 1 Newsletter — Edition 7</div>
-          <div class="past-item-date">Friday 28 February 2026</div>
-        </div>
-        <svg class="past-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-      <a href="#" class="past-item">
-        <div class="past-item-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A9BAD" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <div class="past-item-info">
-          <div class="past-item-name">Term 1 Newsletter — Edition 6</div>
-          <div class="past-item-date">Friday 14 February 2026</div>
-        </div>
-        <svg class="past-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-      <a href="#" class="past-item">
-        <div class="past-item-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A9BAD" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <div class="past-item-info">
-          <div class="past-item-name">Term 4 Newsletter — Edition 10 (2025)</div>
-          <div class="past-item-date">Friday 5 December 2025</div>
-        </div>
-        <svg class="past-item-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-      </a>
-    </div>
-
-    <!-- Announcements -->
-    <div class="section-header" style="margin-top: 8px;">
-      <div class="section-title">
-        <span>School</span>
-        Notices &amp; Announcements
-      </div>
-      <a href="#" class="view-all">All notices →</a>
-    </div>
-
-    <div class="announcements">
-      <div class="announcement">
-        <div class="announce-stripe stripe-amber"></div>
-        <div class="announce-content">
-          <div class="announce-tag tag-amber">Important</div>
-          <div class="announce-title">End of Term 1 Assembly — Families Welcome</div>
-          <div class="announce-desc">Our Term 1 farewell assembly will be held on Thursday 3 April at 2:15 pm in the school gymnasium. All families are warmly welcome to attend and celebrate a wonderful term with our students.</div>
-          <div class="announce-date">Posted Monday 30 March 2026</div>
-        </div>
-      </div>
-      <div class="announcement">
-        <div class="announce-stripe stripe-teal"></div>
-        <div class="announce-content">
-          <div class="announce-tag tag-teal">Community</div>
-          <div class="announce-title">P&amp;F Trivia Night — Tickets Now Available</div>
-          <div class="announce-desc">Tickets for the annual P&amp;F Trivia Night on Saturday 16 May are now on sale via TryBooking. Tables of 8 — a fantastic night for the whole school community.</div>
-          <div class="announce-date">Posted Friday 28 March 2026</div>
-        </div>
-      </div>
-      <div class="announcement">
-        <div class="announce-stripe stripe-navy"></div>
-        <div class="announce-content">
-          <div class="announce-tag tag-navy">Reminder</div>
-          <div class="announce-title">Scholastic Book Club Orders Due Friday</div>
-          <div class="announce-desc">Book Club Issue 2 orders close this Friday 3 April. Submit online at scholastic.com.au/loop or return the paper form with payment to your child's teacher.</div>
-          <div class="announce-date">Posted Wednesday 25 March 2026</div>
-        </div>
-      </div>
-      <div class="announcement">
-        <div class="announce-stripe stripe-red"></div>
-        <div class="announce-content">
-          <div class="announce-tag tag-red">Urgent</div>
-          <div class="announce-title">Year 6 Camp — Consent Forms Due Friday</div>
-          <div class="announce-desc">Consent forms and final payments for the Phillip Island camp (Mon 28 – Wed 30 April) must be returned by Friday 3 April. Please contact the office with any questions.</div>
-          <div class="announce-date">Posted Tuesday 24 March 2026</div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-
-    <!-- Key Dates -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Upcoming Dates
-      </div>
-      <div class="key-dates">
-        <div class="date-item">
-          <div class="date-block amber">
-            <div class="date-day">3</div>
-            <div class="date-month">Apr</div>
-          </div>
-          <div class="date-info">
-            <div class="date-title">End of Term 1 Assembly</div>
-            <div class="date-sub">2:15 pm · Gymnasium</div>
-          </div>
-        </div>
-        <div class="date-item">
-          <div class="date-block amber">
-            <div class="date-day">4</div>
-            <div class="date-month">Apr</div>
-          </div>
-          <div class="date-info">
-            <div class="date-title">Last Day — Term 1</div>
-            <div class="date-sub">Dismissal 3:30 pm</div>
-          </div>
-        </div>
-        <div class="date-item">
-          <div class="date-block teal">
-            <div class="date-day">22</div>
-            <div class="date-month">Apr</div>
-          </div>
-          <div class="date-info">
-            <div class="date-title">First Day — Term 2</div>
-            <div class="date-sub">Students return 8:45 am</div>
-          </div>
-        </div>
-        <div class="date-item">
-          <div class="date-block">
-            <div class="date-day">24</div>
-            <div class="date-month">Apr</div>
-          </div>
-          <div class="date-info">
-            <div class="date-title">ANZAC Assembly</div>
-            <div class="date-sub">9:00 am · Gymnasium</div>
-          </div>
-        </div>
-        <div class="date-item">
-          <div class="date-block">
-            <div class="date-day">28</div>
-            <div class="date-month">Apr</div>
-          </div>
-          <div class="date-info">
-            <div class="date-title">Year 6 Camp Departs</div>
-            <div class="date-sub">Phillip Island · 3 days</div>
-          </div>
-        </div>
-        <div class="date-item">
-          <div class="date-block">
-            <div class="date-day">13</div>
-            <div class="date-month">May</div>
-          </div>
-          <div class="date-info">
-            <div class="date-title">NAPLAN Begins</div>
-            <div class="date-sub">Year 3 &amp; Year 5</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        Quick Links
-      </div>
-      <div class="quick-links">
-        <a href="#" class="quick-link">
-          <div class="quick-link-icon ql-navy">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          Contact the Office
-        </a>
-        <a href="#" class="quick-link">
-          <div class="quick-link-icon ql-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          Compass Parent Portal
-        </a>
-        <a href="#" class="quick-link">
-          <div class="quick-link-icon ql-amber">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          School Bus Routes
-        </a>
-        <a href="#" class="quick-link">
-          <div class="quick-link-icon ql-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          Report an Absence
-        </a>
-        <a href="#" class="quick-link">
-          <div class="quick-link-icon ql-navy">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          </div>
-          School Forms
-        </a>
-        <a href="#" class="quick-link">
-          <div class="quick-link-icon ql-teal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          School Website
-        </a>
-      </div>
-    </div>
-
-  </aside>
 </div>
 
-<!-- Footer -->
+<!-- SCHOOL -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">School</div>
+    <div class="section-count">3 documents</div>
+  </div>
+  <div class="cards">
+
+    <a href="PortMelbournePSNewsletter_T1_2026.pdf" target="_blank" class="card card-featured">
+      <div class="card-icon">📰</div>
+      <div class="card-info">
+        <div class="card-type">School Newsletter · PDF</div>
+        <div class="card-title">South Port Melbourne PS</div>
+        <div class="card-desc">Term 1, Edition 9 · 6 dated events inside · 4 pages</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-tag tag-pdf" style="background:rgba(255,255,255,0.2);color:#fff;border-color:rgba(255,255,255,0.3);">PDF</div>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+    <a href="excursion-note.html" target="_blank" class="card">
+      <div class="card-icon icon-yellow">📋</div>
+      <div class="card-info">
+        <div class="card-type type-note">School Note</div>
+        <div class="card-title">Year 3/4 Excursion Permission Slip</div>
+        <div class="card-desc">Melbourne Museum · Wednesday 20 May 2026</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-tag tag-html">HTML</div>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+    <a href="portal.html" target="_blank" class="card">
+      <div class="card-icon icon-blue">🏫</div>
+      <div class="card-info">
+        <div class="card-type type-portal">Parent Portal</div>
+        <div class="card-title">South Port Melbourne PS Portal</div>
+        <div class="card-desc">Term dates, notices, canteen, quick links</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-tag tag-link">Link</div>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">Social &amp; Family</div>
+    <div class="section-count">2 documents</div>
+  </div>
+  <div class="cards">
+
+    <a href="birthday-invite.html" target="_blank" class="card">
+      <div class="card-icon icon-pink">🎂</div>
+      <div class="card-info">
+        <div class="card-type type-invite">Birthday Invitation</div>
+        <div class="card-title">Liam's 7th Birthday Party</div>
+        <div class="card-desc">Saturday 26 April · 2–5 pm · Port Melbourne SLSC</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-tag tag-new">New</div>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+    <a href="whatsapp-dinner.html" target="_blank" class="card">
+      <div class="card-icon icon-green">💬</div>
+      <div class="card-info">
+        <div class="card-type type-chat">WhatsApp Group</div>
+        <div class="card-title">Dinner Party Planning</div>
+        <div class="card-desc">Saturday 9 May · 7 pm · Jeremy, Sarah, Tom, Kat</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-tag tag-html">HTML</div>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- SPORTS -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-title">Sports Club</div>
+    <div class="section-count">1 document</div>
+  </div>
+  <div class="cards">
+
+    <a href="sports-club-events.html" target="_blank" class="card">
+      <div class="card-icon icon-orange">⚽</div>
+      <div class="card-info">
+        <div class="card-type type-sports">Events Flyer</div>
+        <div class="card-title">Port Melbourne FC — Under 10s</div>
+        <div class="card-desc">Season 2026 · 6 events across April &amp; May</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-tag tag-html">HTML</div>
+        <span class="card-arrow">›</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- TIPS -->
+<div class="tips-grid">
+  <div class="tip">
+    <div class="tip-icon">📸</div>
+    <div class="tip-title">Screenshot test</div>
+    <div class="tip-text">Screenshot any of these pages and share to Sorted to test the image flow</div>
+  </div>
+  <div class="tip">
+    <div class="tip-icon">📤</div>
+    <div class="tip-title">Share Sheet</div>
+    <div class="tip-text">Use iOS Share → Sorted from any open page to test the extension</div>
+  </div>
+  <div class="tip">
+    <div class="tip-icon">📄</div>
+    <div class="tip-title">PDF test</div>
+    <div class="tip-text">The newsletter PDF is the richest test — 6+ dates across multiple sections</div>
+  </div>
+  <div class="tip">
+    <div class="tip-icon">💬</div>
+    <div class="tip-title">Chat test</div>
+    <div class="tip-text">The WhatsApp chat tests informal date extraction — messier data</div>
+  </div>
+</div>
+
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand-name">South Port Melbourne Primary School</div>
-      <div class="footer-brand-info">
-        Beacon Street, Port Melbourne VIC 3207<br>
-        (03) 9646 0000 &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="234c45454a404663504c56574b534c51574e464f414c56514d4653500d554a400d4647560d4256">[email&#160;protected]</a><br>
-        www.southportmelbourneps.vic.edu.au
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Navigation</div>
-      <div class="footer-links">
-        <a href="#">Home</a>
-        <a href="#">Newsletters</a>
-        <a href="#">School Calendar</a>
-        <a href="#">Notices</a>
-        <a href="#">Forms &amp; Documents</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Resources</div>
-      <div class="footer-links">
-        <a href="#">Compass Portal</a>
-        <a href="#">Canteen (Flexischools)</a>
-        <a href="#">Uniform Shop (Qkr!)</a>
-        <a href="#">DET Victoria</a>
-        <a href="#">Report an Absence</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 South Port Melbourne Primary School. Department of Education Victoria.</span>
-    <div style="display:flex;gap:20px;">
-      <a 
+  <div class="footer-logo">📅 Sorted</div>
+  <div class="footer-text">Test content hub · All names, dates and details are fictional</div>
+  <div class="footer-tagline">School newsletters, sorted.</div>
+</footer>
+
+</body>
+</html>

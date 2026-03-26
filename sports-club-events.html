@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Port Melbourne FC — Upcoming Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0F2340;
+    min-height: 100vh;
+    padding: 32px 16px;
+  }
+  .flyer {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .club-header {
+    text-align: center;
+    padding: 32px 0 28px;
+  }
+  .club-crest {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #1A3A5C, #2A5A8C);
+    border-radius: 50%;
+    border: 3px solid #F7C948;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 14px;
+  }
+  .club-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+  .club-sub {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F7C948;
+    margin-top: 4px;
+  }
+  .divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #F7C948, transparent);
+    margin: 0 32px 28px;
+  }
+  .section-label {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 16px;
+  }
+  .event-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .event-card.featured {
+    background: rgba(247,201,72,0.1);
+    border-color: rgba(247,201,72,0.3);
+  }
+  .event-card.match {
+    background: rgba(42,138,138,0.1);
+    border-color: rgba(42,138,138,0.25);
+  }
+  .date-block {
+    width: 48px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .date-day {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #fff;
+    line-height: 1;
+  }
+  .date-month {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+  }
+  .event-info { flex: 1; }
+  .event-type {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .type-match    { color: #3AABAB; }
+  .type-training { color: rgba(255,255,255,0.5); }
+  .type-social   { color: #F4623A; }
+  .type-featured { color: #F7C948; }
+  .event-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .event-detail {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  .event-badge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    align-self: flex-start;
+    flex-shrink: 0;
+  }
+  .badge-home  { background: rgba(52,199,89,0.15); color: #4cd964; border: 1px solid rgba(52,199,89,0.3); }
+  .badge-away  { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.15); }
+  .badge-gold  { background: rgba(247,201,72,0.15); color: #F7C948; border: 1px solid rgba(247,201,72,0.3); }
+  .notice-box {
+    background: rgba(244,98,58,0.1);
+    border: 1px solid rgba(244,98,58,0.25);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 20px 0 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+  .notice-box strong { color: #F4623A; }
+  .footer-note {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    padding: 24px 0 8px;
+    line-height: 1.7;
+  }
+  .footer-note a { color: rgba(255,255,255,0.4); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="club-header">
+    <div class="club-crest">⚽</div>
+    <div class="club-name">Port Melbourne FC</div>
+    <div class="club-sub">Under 10s — Season 2026</div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="section-label">April & May — Key Dates</div>
+
+  <div class="event-card">
+    <div class="date-block">
+      <div class="date-day">5</div>
+      <div class="date-month">Apr</div>
+    </div>
+    <div class="event-info">
+      <div class="event-type type-training">Training</div>
+      <div class="event-name">Last Training — School Holidays</div>
+      <div class="event-detail">Lagoon Reserve · 4:30 pm – 5:30 pm<br>No training 7–22 April (school holidays)</div>
+    </div>
+  </div>
+
+  <div class="event-card match">
+    <div class="date-block">
+      <div class="date-day">26</div>
+      <div class="date-month">Apr</div>
+    </div>
+    <div class="event-info">
+      <div class="event-type type-match">Round 1 — Season Opener</div>
+      <div class="event-name">Port Melbourne FC vs South Melbourne</div>
+      <div class="event-detail">Lagoon Reserve, Pitch 2 · 9:30 am kick-off<br>Arrive 9:00 am for warm-up</div>
+    </div>
+    <div class="event-badge badge-home">Home</div>
+  </div>
+
+  <div class="event-card match">
+    <div class="date-block">
+      <div class="date-day">3</div>
+      <div class="date-month">May</div>
+    </div>
+    <div class="event-info">
+      <div class="event-type type-match">Round 2</div>
+      <div class="event-name">Port Melbourne FC vs St Kilda City</div>
+      <div class="event-detail">Alma Park, St Kilda · 10:00 am kick-off<br>Car pool being organised — see group chat</div>
+    </div>
+    <div class="event-badge badge-away">Away</div>
+  </div>
+
+  <div class="event-card featured">
+    <div class="date-block">
+      <div class="date-day">10</div>
+      <div class="date-month">May</div>
+    </div>
+    <div class="event-info">
+      <div class="event-type type-featured">⭐ Club Night</div>
+      <div class="event-name">Season Launch & Presentation Night</div>
+      <div class="event-detail">Port Melbourne SLSC · 6:00 pm – 9:00 pm<br>Players, parents & siblings welcome · Dinner included</div>
+    </div>
+    <div class="event-badge badge-gold">All Ages</div>
+  </div>
+
+  <div class="event-card match">
+    <div class="date-block">
+      <div class="date-day">17</div>
+      <div class="date-month">May</div>
+    </div>
+    <div class="event-info">
+      <div class="event-type type-match">Round 4</div>
+      <div class="event-name">Port Melbourne FC vs Albert Park</div>
+      <div class="event-detail">Lagoon Reserve, Pitch 1 · 9:30 am kick-off</div>
+    </div>
+    <div class="event-badge badge-home">Home</div>
+  </div>
+
+  <div class="event-card">
+    <div class="date-block">
+      <div class="date-day">24</div>
+      <div class="date-month">May</div>
+    </div>
+    <div class="event-info">
+      <div class="event-type type-social">Fundraiser</div>
+      <div class="event-name">Bunnings BBQ — Club Fundraiser</div>
+      <div class="event-detail">Bunnings Port Melbourne · 8:00 am – 2:00 pm<br>All families rostered — check the sign-up sheet</div>
+    </div>
+  </div>
+
+  <div class="notice-box">
+    <strong>Reminder:</strong> All players must have a current FFA registration before Round 1. Contact Sam on 0411 222 333 if you haven't completed this yet.
+  </div>
+
+  <div class="footer-note">
+    Questions? Contact Coach Dave · 0422 111 999<br>
+    <a href="#">portmelbournefc.vic.au</a> · Follow us on Facebook
+  </div>
+</div>
+</body>
+</html>

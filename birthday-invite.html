@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liam's 7th Birthday Party!</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;1,400;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FDF6F0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 28px;
+    max-width: 480px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(244,98,58,0.15), 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .card-top {
+    background: linear-gradient(135deg, #F4623A 0%, #F7943A 100%);
+    padding: 40px 32px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-top::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .card-top::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; left: -30px;
+    width: 120px; height: 120px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+  .balloons { font-size: 40px; margin-bottom: 12px; position: relative; z-index: 1; letter-spacing: 4px; }
+  .youre-invited {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    position: relative; z-index: 1;
+  }
+  .name {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 42px;
+    color: #fff;
+    line-height: 1.1;
+    position: relative; z-index: 1;
+  }
+  .age-badge {
+    display: inline-block;
+    background: #F7C948;
+    color: #1C1410;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    margin-top: 14px;
+    position: relative; z-index: 1;
+  }
+  .card-body { padding: 32px; }
+  .detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #F0EAE4;
+  }
+  .detail-row:last-of-type { border-bottom: none; }
+  .detail-icon {
+    width: 40px; height: 40px;
+    background: #FDE8D8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .detail-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6B5C52;
+    margin-bottom: 2px;
+  }
+  .detail-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1C1410;
+    line-height: 1.4;
+  }
+  .detail-sub { font-size: 13px; color: #6B5C52; margin-top: 2px; }
+  .rsvp-block {
+    background: #FDE8D8;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 24px;
+    text-align: center;
+  }
+  .rsvp-title { font-weight: 700; font-size: 14px; color: #1C1410; margin-bottom: 6px; }
+  .rsvp-detail { font-size: 13px; color: #6B5C52; line-height: 1.6; }
+  .rsvp-detail a { color: #F4623A; font-weight: 600; text-decoration: none; }
+  .theme-note {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #6B5C52;
+    font-style: italic;
+  }
+  .theme-note strong { color: #F4623A; font-style: normal; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="card-top">
+    <div class="balloons">🎈🎂🎈</div>
+    <div class="youre-invited">You're invited to</div>
+    <div class="name">Liam's<br>Birthday!</div>
+    <div class="age-badge">🎉 Turning 7 🎉</div>
+  </div>
+  <div class="card-body">
+    <div class="detail-row">
+      <div class="detail-icon">📅</div>
+      <div>
+        <div class="detail-label">When</div>
+        <div class="detail-value">Saturday 26 April 2026</div>
+        <div class="detail-sub">2:00 pm – 5:00 pm</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon">📍</div>
+      <div>
+        <div class="detail-label">Where</div>
+        <div class="detail-value">Port Melbourne Life Saving Club</div>
+        <div class="detail-sub">Cnr Beaconsfield Pde & Richardson St, Port Melbourne</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon">🦸</div>
+      <div>
+        <div class="detail-label">Theme</div>
+        <div class="detail-value">Superheroes!</div>
+        <div class="detail-sub">Come dressed as your favourite hero</div>
+      </div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-icon">🍕</div>
+      <div>
+        <div class="detail-label">Food &amp; Drinks</div>
+        <div class="detail-value">Pizza, cake &amp; party food provided</div>
+        <div class="detail-sub">Please let us know of any allergies</div>
+      </div>
+    </div>
+    <div class="rsvp-block">
+      <div class="rsvp-title">RSVP by Sunday 13 April</div>
+      <div class="rsvp-detail">
+        Text or call <a href="tel:0412345678">Kat on 0412 345 678</a><br>
+        or email <a href="mailto:kat@email.com">kat@email.com</a>
+      </div>
+    </div>
+    <div class="theme-note">We can't wait to celebrate with you! 🎊<br>— <strong>The Whittemore Family</strong></div>
+  </div>
+</div>
+</body>
+</html>

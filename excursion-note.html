@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Excursion Note — Year 3/4</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f5f5f5;
+    padding: 24px 16px;
+    min-height: 100vh;
+  }
+  .note {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  .note-header {
+    background: #1A3A5C;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .school-logo {
+    width: 44px; height: 44px;
+    background: #E8A020;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 16px; color: #1A3A5C;
+    flex-shrink: 0;
+  }
+  .school-header-text { }
+  .school-header-name { font-weight: 700; font-size: 15px; color: #fff; }
+  .school-header-sub  { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
+  .note-body { padding: 24px; }
+  .note-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1A3A5C;
+    margin-bottom: 4px;
+  }
+  .note-subtitle {
+    font-size: 13px;
+    color: #6B5C52;
+    margin-bottom: 20px;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .info-item {
+    background: #FDF6F0;
+    border-radius: 10px;
+    padding: 12px 14px;
+    border-left: 3px solid #E8A020;
+  }
+  .info-item.full { grid-column: 1 / -1; }
+  .info-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5C52; margin-bottom: 3px; }
+  .info-value { font-size: 14px; font-weight: 600; color: #1C1410; line-height: 1.4; }
+  .note-text {
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .cost-box {
+    background: #FDE8D8;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cost-label { font-size: 13px; font-weight: 600; color: #1C1410; }
+  .cost-amount { font-size: 22px; font-weight: 700; color: #F4623A; }
+  .cost-sub { font-size: 11px; color: #6B5C52; margin-top: 1px; }
+  .section-divider {
+    height: 1px;
+    background: #F0EAE4;
+    margin: 20px 0;
+  }
+  .tear-line {
+    border-top: 2px dashed #ccc;
+    margin: 24px 0 20px;
+    position: relative;
+    text-align: center;
+  }
+  .tear-line span {
+    background: #fff;
+    padding: 0 10px;
+    font-size: 11px;
+    color: #aaa;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    position: relative;
+    top: -8px;
+  }
+  .slip-title { font-size: 14px; font-weight: 700; color: #1A3A5C; margin-bottom: 14px; }
+  .form-field {
+    margin-bottom: 14px;
+  }
+  .field-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #6B5C52; margin-bottom: 4px; }
+  .field-line {
+    border-bottom: 1.5px solid #E0D8D2;
+    height: 28px;
+    width: 100%;
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .checkbox {
+    width: 18px; height: 18px;
+    border: 2px solid #1A3A5C;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .checkbox-label { font-size: 13px; color: #333; line-height: 1.4; }
+  .return-by {
+    background: #1A3A5C;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  .return-by span { color: #E8A020; }
+</style>
+</head>
+<body>
+<div class="note">
+  <div class="note-header">
+    <div class="school-logo">SP</div>
+    <div class="school-header-text">
+      <div class="school-header-name">South Port Melbourne Primary School</div>
+      <div class="school-header-sub">Beacon Street, Port Melbourne VIC 3207</div>
+    </div>
+  </div>
+  <div class="note-body">
+    <div class="note-title">Year 3/4 Excursion Notice</div>
+    <div class="note-subtitle">Melbourne Museum — Dinosaurs &amp; Ancient Life</div>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Date</div>
+        <div class="info-value">Wednesday<br>20 May 2026</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Departure</div>
+        <div class="info-value">Leave school<br>8:45 am sharp</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Return</div>
+        <div class="info-value">Back by<br>3:15 pm</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Transport</div>
+        <div class="info-value">Charter bus<br>(return trip)</div>
+      </div>
+      <div class="info-item full">
+        <div class="info-label">What to bring</div>
+        <div class="info-value">Packed lunch, recess snack, water bottle, named hat. No canteen access on this day.</div>
+      </div>
+    </div>
+
+    <p class="note-text">
+      Students will visit the Melbourne Museum's famous Dinosaur Walk and the Bugs Alive! exhibition as part of their Term 2 Inquiry unit on <em>Life on Earth</em>. This is a fantastic opportunity to bring their classroom learning to life. All students must wear full school uniform including hat.
+    </p>
+    <p class="note-text">
+      We require <strong>4 parent volunteers</strong> to assist on the day. If you are available and have a current Working With Children Check, please indicate below.
+    </p>
+
+    <div class="cost-box">
+      <div>
+        <div class="cost-label">Excursion contribution</div>
+        <div class="cost-sub">Bus + entry · Pay via Compass</div>
+      </div>
+      <div class="cost-amount">$24.00</div>
+    </div>
+
+    <div class="tear-line"><span>✂ please return below ✂</span></div>
+
+    <div class="slip-title">Year 3/4 Excursion Permission Slip</div>
+
+    <div class="form-field field-row">
+      <div>
+        <div class="field-label">Student Name</div>
+        <div class="field-line"></div>
+      </div>
+      <div>
+        <div class="field-label">Class</div>
+        <div class="field-line"></div>
+      </div>
+    </div>
+    <div class="form-field">
+      <div class="field-label">Parent / Guardian Name</div>
+      <div class="field-line"></div>
+    </div>
+    <div class="form-field">
+      <div class="field-label">Emergency Contact Number (day of excursion)</div>
+      <div class="field-line"></div>
+    </div>
+    <div class="form-field">
+      <div class="field-label">Medical / Allergy Conditions (if any)</div>
+      <div class="field-line"></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="checkbox-row">
+      <div class="checkbox"></div>
+      <div class="checkbox-label">I give permission for my child to attend the Melbourne Museum excursion on Wednesday 20 May 2026.</div>
+    </div>
+    <div class="checkbox-row">
+      <div class="checkbox"></div>
+      <div class="checkbox-label">I am available to volunteer as a parent helper on the day (must have current WWCC).</div>
+    </div>
+    <div class="checkbox-row">
+      <div class="checkbox"></div>
+      <div class="checkbox-label">I have paid the $24.00 contribution via Compass (or will do so by Friday 15 May).</div>
+    </div>
+
+    <div class="form-field" style="margin-top:14px;">
+      <div class="field-label">Signature</div>
+      <div class="field-line"></div>
+    </div>
+
+    <div class="return-by">Return this slip by <span>Friday 15 May 2026</span></div>
+  </div>
+</div>
+</body>
+</html>
