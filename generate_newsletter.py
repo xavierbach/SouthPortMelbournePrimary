@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 """
 Regenerate PortMelbournePSNewsletter_T1_2026.pdf using reportlab.
-Fixes header: school name no longer overlaps address, right column centred.
+
+Header layout (fixed):
+  Blue bar (68 pt tall):
+    LEFT  – "South Port Melbourne Primary School"  (22 pt, white bold)
+              "TERM 1 NEWSLETTER"                   (12 pt, gold bold, below school name)
+              "Beacon Street, Port Melbourne VIC 3207"  (8 pt, white, bottom of bar)
+              "www… | (03)…"                            (8 pt, white)
+    RIGHT – "Edition 9 — Final Edition"   (10 pt, gold, right-aligned, vertically centred)
+              "Friday 28 March 2026"        (10 pt, gold, right-aligned)
+  Gold bar (24 pt):
+    Motto + "Last week of Term 1 2026"
 """
 
 import os
@@ -63,68 +73,100 @@ def rl_font(fitz_font):
     return 'Helvetica-Bold' if 'Bold' in fitz_font else 'Helvetica'
 
 # ---------------------------------------------------------------------------
-# Header — fixed layout (no overlap, right column centred)
+# Header — redesigned layout
 # ---------------------------------------------------------------------------
 def draw_header(c):
-    BOX_TOP  = H - 39.69   # 802.2
+    BOX_TOP  = H - 39.69   # 802.2  (rl, from bottom)
     BOX_BOT  = H - 107.69  # 734.2
     GOLD_BOT = H - 131.69  # 710.2
     BOX_H    = BOX_TOP - BOX_BOT   # 68 pt
-    RIGHT_X  = 526.6       # right-align text to this x
+    LEFT_X   = 70.7
+    RIGHT_X  = 526.6   # right-align all right-column text here
 
-    # Filled backgrounds
+    # ── Backgrounds ──────────────────────────────────────────────────────────
     c.setFillColor(NAVY)
-    c.rect(56.7, BOX_BOT,  481.9, BOX_H, fill=1, stroke=0)
+    c.rect(56.7, BOX_BOT,  481.9, BOX_H,              fill=1, stroke=0)
     c.setFillColor(GOLD)
     c.rect(56.7, GOLD_BOT, 481.9, BOX_BOT - GOLD_BOT, fill=1, stroke=0)
 
-    # ---- LEFT column (white) ----
+    # ── LEFT column ──────────────────────────────────────────────────────────
+    # Layout from top of blue bar, top-to-bottom:
+    #   [5 pt margin]
+    #   School name   22 pt white bold
+    #   [3 pt gap]
+    #   TERM 1 NEWSLETTER  12 pt gold bold
+    #   [auto gap fills middle]
+    #   Address       8 pt white  }  grouped at bottom of box
+    #   [2 pt gap]                }
+    #   Website       8 pt white  }
+    #   [5 pt margin]
+
+    # School name
     c.setFillColor(WHITE)
-
-    # School name: place so top of caps is 6 pt below box top
     c.setFont('Helvetica-Bold', 22)
-    school_cap = 22 * 0.728          # cap height ≈ ascender for Helvetica
-    school_y   = BOX_TOP - 6 - school_cap
-    c.drawString(70.7, school_y, 'South Port Melbourne Primary School')
+    school_asc  = 22 * 0.728          # ≈ 16.0 pt
+    school_desc = 22 * 0.21           # ≈  4.6 pt
+    school_y    = BOX_TOP - 5 - school_asc          # baseline
+    school_bot  = school_y - school_desc             # bottom of descenders
+    c.drawString(LEFT_X, school_y, 'South Port Melbourne Primary School')
 
-    # Contact info grouped at bottom of box, bottom-to-top
-    c.setFont('Helvetica', 10)
-    desc_10 = 10 * 0.21   # descender
-    asc_10  = 10 * 0.728  # ascender
-    line_h  = asc_10 + desc_10   # ≈ 9.38
+    # TERM 1 NEWSLETTER subtitle
+    c.setFillColor(GOLD)
+    c.setFont('Helvetica-Bold', 12)
+    nl_asc  = 12 * 0.728      # ≈ 8.7 pt
+    nl_desc = 12 * 0.21       # ≈ 2.5 pt
+    nl_y    = school_bot - 3 - nl_asc               # baseline (3 pt below school)
+    nl_bot  = nl_y - nl_desc
+    c.drawString(LEFT_X, nl_y, 'TERM 1 NEWSLETTER')
 
-    website_y = BOX_BOT + 5 + desc_10              # 5 pt bottom margin
-    addr_y    = website_y + line_h + 3              # 3 pt gap above website
+    # Address + contact grouped at bottom of bar (8 pt, white)
+    c.setFillColor(WHITE)
+    c.setFont('Helvetica', 8)
+    a8_asc  = 8 * 0.728       # ≈ 5.8 pt
+    a8_desc = 8 * 0.21        # ≈ 1.7 pt
+    a8_lh   = a8_asc + a8_desc   # ≈ 7.5 pt  (full line height)
 
-    c.drawString(70.7, website_y, 'www.southportmelbourneps.vic.edu.au  |  (03) 9646 0000')
-    c.drawString(70.7, addr_y,    'Beacon Street, Port Melbourne VIC 3207')
+    web_y   = BOX_BOT + 5 + a8_desc                 # baseline, 5 pt from box bottom
+    addr_y  = web_y + a8_lh + 2                     # address line above website
 
-    # ---- RIGHT column (gold, right-aligned, vertically centred) ----
+    c.drawString(LEFT_X, web_y,  'www.southportmelbourneps.vic.edu.au  |  (03) 9646 0000')
+    c.drawString(LEFT_X, addr_y, 'Beacon Street, Port Melbourne VIC 3207')
+
+    # ── RIGHT column (gold, right-aligned) ───────────────────────────────────
+    # Two lines: Edition and Date, vertically centred in the UPPER portion of
+    # the blue bar (above where address/contact live).
+    # "Upper portion" = from box top down to where subtitle ends + a bit of gap.
+    upper_bot = nl_bot - 4          # 4 pt below the subtitle bottom
+    upper_h   = BOX_TOP - upper_bot # height of upper portion
+
     c.setFillColor(GOLD)
     c.setFont('Helvetica-Bold', 10)
+    r10_asc  = 10 * 0.728
+    r10_desc = 10 * 0.21
+    r10_lh   = r10_asc + r10_desc   # ≈ 9.4 pt
 
-    right_items = [
-        'TERM 1 NEWSLETTER',
+    right_lines = [
         'Edition 9 \u2014 Final Edition',
         'Friday 28 March 2026',
     ]
-    gap   = 8          # pt between items
-    total = 3 * line_h + 2 * gap
-    top_pad = (BOX_H - total) / 2
+    gap_r    = 6
+    total_r  = len(right_lines) * r10_lh + (len(right_lines) - 1) * gap_r
+    top_pad_r = (upper_h - total_r) / 2
 
-    for i, text in enumerate(right_items):
-        item_y = BOX_TOP - top_pad - i * (line_h + gap) - asc_10
+    for i, text in enumerate(right_lines):
+        ry = BOX_TOP - top_pad_r - i * (r10_lh + gap_r) - r10_asc
         tw = c.stringWidth(text, 'Helvetica-Bold', 10)
-        c.drawString(RIGHT_X - tw, item_y, text)
+        c.drawString(RIGHT_X - tw, ry, text)
 
-    # ---- Gold bar (navy text, centred vertically) ----
+    # ── Gold bar: motto + term note ───────────────────────────────────────────
     c.setFillColor(NAVY)
     c.setFont('Helvetica-Bold', 9)
-    gold_h  = BOX_BOT - GOLD_BOT   # 24 pt
-    text_y  = GOLD_BOT + (gold_h - 9 * 0.728) / 2   # visual centre
+    gold_h   = BOX_BOT - GOLD_BOT      # 24 pt
+    g9_asc   = 9 * 0.728
+    text_y   = GOLD_BOT + (gold_h + g9_asc) / 2 - g9_asc   # visually centred
 
-    tagline = '\u2665  Celebrating community, curiosity and connection  \u2665'
-    lw_text = 'Last week of Term 1 2026'
+    tagline  = '\u2665  Celebrating community, curiosity and connection  \u2665'
+    lw_text  = 'Last week of Term 1 2026'
     c.drawString(123.3, text_y, tagline)
     lw_w = c.stringWidth(lw_text, 'Helvetica-Bold', 9)
     c.drawString(RIGHT_X - lw_w, text_y, lw_text)
